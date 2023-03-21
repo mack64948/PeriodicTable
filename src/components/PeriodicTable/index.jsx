@@ -1,200 +1,77 @@
 import "./index.css"
 import { ElementContainer } from "../ElementContainer";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { getElementByAtomicNumber, getElementInfo } from "../../data/data";
+
+const tableData = [
+    //column labels
+    ["column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label"],
+
+    //periods
+    ["row-label","g1 atnum-1","filler", "filler", "filler", "filler", "filler", "filler", "filler", "filler","filler", "filler", "filler", "filler","filler", "filler", "filler", "filler","g8 atnum-2" ], //period 1
+    ["row-label","g1 alkali-metal atnum-3", "g2 alkaline-earth-metal atnum-4", "filler", "filler", "filler", "filler", "filler", "filler", "filler", "filler","filler", "filler", "g3 atnum-5","g4 atnum-6", "g5 atnum-7","g6 atnum-8", "g7 halogens atnum-9", "g8 noble-gases atnum-10" ], //period 2
+    ["row-label","g1 alkali-metal atnum-11", "g2 alkaline-earth-metal atnum-12", "filler", "filler", "filler", "filler", "filler", "filler", "filler", "filler","filler", "filler", "g3 atnum-13","g4 atnum-14", "g5 atnum-15","g6 atnum-16", "g7 halogens atnum-17", "g8 noble-gases atnum-18" ], //period 3
+    ["row-label","g1 alkali-metal atnum-19", "g2 alkaline-earth-metal atnum-20", 
+        "tr-metal atnum-21", "tr-metal atnum-22", "tr-metal atnum-23", "tr-metal atnum-24", "tr-metal atnum-25", "tr-metal atnum-26", "tr-metal atnum-27", "tr-metal atnum-28","tr-metal atnum-29", "tr-metal atnum-30", "g3 atnum-13","g4 atnum-14", "g5 atnum-15","g6 atnum-16", "g7 halogens atnum-17", "g8 noble-gases atnum-18" ], //period 4
+
+    ["row-label","g1 alkali-metal atnum-37", "g2 alkaline-earth-metal atnum-38", 
+        "tr-metal atnum-39", "tr-metal atnum-40", "tr-metal atnum-41", "tr-metal atnum-42", "tr-metal atnum-43", "tr-metal atnum-44", "tr-metal atnum-45", "tr-metal atnum-46","tr-metal atnum-47", "tr-metal atnum-48", "g3 atnum-49","g4 atnum-50", "g5 atnum-51","g6 atnum-52", "g7 halogens atnum-53", "g8 noble-gases atnum-54" ], //period 5
+
+]
+
+function getAtomicNumberFromTableDataString(dataString){
+    let startIndex = dataString.indexOf("atnum-") + 6;
+    let numStr = dataString.slice(startIndex)
+    console.log(numStr);
+    return parseInt(numStr);
+}
 
 export const PeriodicTable = ({setSelected}) => {
-   
+    
+  
 
     return (<div className="pt-container">
-        <div className="pt-element-container column-label"></div>
-        <div className="pt-element-container column-label">1</div>
-        <div className="pt-element-container column-label">2</div>
-        <div className="pt-element-container column-label">3</div>
-        <div className="pt-element-container column-label">4</div>
-        <div className="pt-element-container column-label">5</div>
-        <div className="pt-element-container column-label">6</div>
-        <div className="pt-element-container column-label">7</div>
-        <div className="pt-element-container column-label">8</div>
-        <div className="pt-element-container column-label">9</div>
-        <div className="pt-element-container column-label">10</div>
-        <div className="pt-element-container column-label">11</div>
-        <div className="pt-element-container column-label">12</div>
-        <div className="pt-element-container column-label">13</div>
-        <div className="pt-element-container column-label">14</div>
-        <div className="pt-element-container column-label">15</div>
-        <div className="pt-element-container column-label">16</div>
-        <div className="pt-element-container column-label">17</div>
-        <div className="pt-element-container column-label">18</div>
-
-        {/* Period 1 */}
-        <div className="pt-element-container row-label">1</div>
-
-        <div onMouseOver={
-            (e) => { setSelected(1);}
-        } className="pt-element-container period-1 g1">H</div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-        <div className="pt-element-container period-1 filler"></div>
-
-        <div onMouseOver={
-            (e) => { setSelected(2);}
-        }  className="pt-element-container period-1 g8">He</div>
 
 
-        {/* Period 2 */}
-        <div className="pt-element-container row-label">2</div>
 
-        <div onMouseOver={
-            (e) => { setSelected(3);}
-        }  className="pt-element-container g1 alkali-metal">Li</div>
-        <div onMouseOver={
-            (e) => { setSelected(4);}
-        }  className="pt-element-container g2">Be</div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
+        {
+            tableData.map((stringArr,rowIndex) => {
+                if(rowIndex === 0){
+                    return stringArr.map((data,index) => {
+                        return index > 0 ? <div className="pt-element-container column-label">{index}</div> : <div className="pt-element-container column-label"></div>;
+                    })
+                } else {
 
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container g3">B</div>
-        <div className="pt-element-container g4">C</div>
-        <div className="pt-element-container g5">N</div>
-        <div className="pt-element-container g6">O</div>
-        <div className="pt-element-container g7">F</div>
-        <div className="pt-element-container g8">Ne</div>
+                    return stringArr.map((data,index) => {
+                        return index === 0 ? <div className="pt-element-container row-label">{rowIndex}</div> :
+                            data.indexOf('filler') === -1 ?   
+                            <ElementContainer mouseOverHandler={
+                                () => {
+                                 
+                                    let atomicNumber = getAtomicNumberFromTableDataString(data);
+                                    setSelected(atomicNumber);
+                                }
+                            }  className={`pt-element-container period-${rowIndex} ${data}`} 
+                                elementInfo={ getElementInfo(getAtomicNumberFromTableDataString(data)-1)
+                                   
+                                 
+                            }></ElementContainer>
+                              : 
+                            <div className="pt-element-container period-1 filler"></div>;
+        
+                            
 
-
-        {/* Period 3 */}
-        <div className="pt-element-container row-label">3</div>
-
-        <ElementContainer className="pt-element-container g1 alkali-metal" elementInfo={
-            { symbol: "Na", name: "Sodium", atomicNumber: 11, atomicWeight: 22.990}
-        }></ElementContainer>
-        <div className="pt-element-container g2">Mg</div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container filler"></div>
-        <div className="pt-element-container g3">Al</div>
-        <div className="pt-element-container g4">Si</div>
-        <div className="pt-element-container g5">P</div>
-        <div className="pt-element-container g6">S</div>
-        <div className="pt-element-container g7">Cl</div>
-        <div className="pt-element-container g8">Ar</div>
-
-        {/* Period 4 */}
-        <div className="pt-element-container row-label">4</div>
-        <div className="pt-element-container g1 alkali-metal">K</div>
-        <div className="pt-element-container g2">Ca</div>
-        <div className="pt-element-container tr-metal">Sc</div>
-        <div className="pt-element-container tr-metal">Ti</div>
-        <div className="pt-element-container tr-metal">V</div>
-        <div className="pt-element-container tr-metal">Cr</div>
-        <div className="pt-element-container tr-metal">Mn</div>
-        <div className="pt-element-container tr-metal">Fe</div>
-        <div className="pt-element-container tr-metal">Co</div>
-        <div className="pt-element-container tr-metal">Ni</div>
-        <div className="pt-element-container tr-metal">Cu</div>
-        <div className="pt-element-container tr-metal">Zn</div>
-        <div className="pt-element-container g3">Ga</div>
-        <div className="pt-element-container g4">Ge</div>
-        <div className="pt-element-container g5">As</div>
-        <div className="pt-element-container g6">Se</div>
-        <div className="pt-element-container g7">Br</div>
-        <div className="pt-element-container g8">Kr</div>
+                });
+            }
+        })
 
 
-        {/* Period 5 */}
-        <div className="pt-element-container row-label">5</div>
+           
+        }
+        
+      
 
-        <div className="pt-element-container alkali-metal">Rb</div>
-        <div className="pt-element-container">Sr</div>
-        <div className="pt-element-container tr-metal">Y</div>
-        <div className="pt-element-container tr-metal">Zr</div>
-        <div className="pt-element-container tr-metal">Nb</div>
-        <div className="pt-element-container tr-metal">Mo</div>
-        <div className="pt-element-container tr-metal">Tc</div>
-        <div className="pt-element-container tr-metal">Ru</div>
-        <div className="pt-element-container tr-metal">Rh</div>
-        <div className="pt-element-container tr-metal">Pd</div>
-        <div className="pt-element-container tr-metal">Ag</div>
-        <div className="pt-element-container tr-metal">Cd</div>
-        <div className="pt-element-container">In</div>
-        <div className="pt-element-container">Sn</div>
-        <div className="pt-element-container">Sb</div>
-        <div className="pt-element-container">Te</div>
-        <div className="pt-element-container">I</div>
-        <div className="pt-element-container">Xe</div>
-
-        {/* Period 6 */}
-        <div className="pt-element-container row-label">6</div>
-
-        <div className="pt-element-container">Ca</div>
-        <div className="pt-element-container">Ba</div>
-        <div className="pt-element-container">51-71</div>
-        <div className="pt-element-container">Hf</div>
-        <div className="pt-element-container">Ta</div>
-        <div className="pt-element-container">W</div>
-        <div className="pt-element-container">Re</div>
-        <div className="pt-element-container">Os</div>
-        <div className="pt-element-container">Ir</div>
-        <div className="pt-element-container">Pt</div>
-        <div className="pt-element-container">Au</div>
-        <div className="pt-element-container">Hg</div>
-        <div className="pt-element-container">Tl</div>
-        <div className="pt-element-container">Pb</div>
-        <div className="pt-element-container">Bi</div>
-        <div className="pt-element-container">Po</div>
-        <div className="pt-element-container">At</div>
-        <div className="pt-element-container">Rn</div>
-
-        {/* Period 7 */}
-        <div className="pt-element-container row-label">7</div>
-
-        <div className="pt-element-container">Fr</div>
-        <div className="pt-element-container">Ra</div>
-        <div className="pt-element-container">89-103</div>
-        <div className="pt-element-container">Rf</div>
-        <div className="pt-element-container">Db</div>
-        <div className="pt-element-container">Sg</div>
-        <div className="pt-element-container">Bh</div>
-        <div className="pt-element-container">Hs</div>
-        <div className="pt-element-container">Mt</div>
-        <div className="pt-element-container">Ds</div>
-        <div className="pt-element-container">Rg</div>
-        <div className="pt-element-container">Cn</div>
-        <div className="pt-element-container">Nh</div>
-        <div className="pt-element-container">Fl</div>
-        <div className="pt-element-container">Mc</div>
-        <div className="pt-element-container">Lv</div>
-        <div className="pt-element-container">Ts</div>
-        <div className="pt-element-container">Og</div>
-
-
+        
 
     </div>);
 }

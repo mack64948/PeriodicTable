@@ -19,18 +19,32 @@ const elementData = [
         symbol: "He",
         name: "Helium",
         atomicWeight: 4.0026,
-        description: "Helium (from Greek: ἥλιος, romanized: helios, lit. 'sun') is a chemical element with the symbol He and atomic number 2. It is a colorless, odorless, tasteless, non-toxic, inert, monatomic gas and the first in the noble gas group in the periodic table.[a] Its boiling point is the lowest among all the elements, and it does not have a melting point at standard pressure. It is the second lightest and second most abundant element in the observable universe, after hydrogen. It is present at about 24% of the total elemental mass, which is more than 12 times the mass of all the heavier elements combined. Its abundance is similar to this in both the Sun and in Jupiter, due to the very high nuclear binding energy (per nucleon) of helium-4, with respect to the next three elements after helium. This helium-4 binding energy also accounts for why it is a product of both nuclear fusion and radioactive decay. The most common isotope of helium in the universe is helium-4, the vast majority of which was formed during the Big Bang. Large amounts of new helium are created by nuclear fusion of hydrogen in stars."
+        description: "Helium (from Greek: ἥλιος, romanized: helios, lit. 'sun') is a chemical element with the symbol He and atomic number 2. It is a colorless, odorless, tasteless, non-toxic, inert, monatomic gas and the first in the noble gas group in the periodic table.[a] Its boiling point is the lowest among all the elements, and it does not have a melting point at standard pressure. It is the second lightest and second most abundant element in the observable universe, after hydrogen. It is present at about 24% of the total elemental mass, which is more than 12 times the mass of all the heavier elements combined. Its abundance is similar to this in both the Sun and in Jupiter, due to the very high nuclear binding energy (per nucleon) of helium-4, with respect to the next three elements after helium. This helium-4 binding energy also accounts for why it is a product of both nuclear fusion and radioactive decay. The most common isotope of helium in the universe is helium-4, the vast majority of which was formed during the Big Bang. Large amounts of new helium are created by nuclear fusion of hydrogen in stars.",
+        series: "Noble gases",
+        mp: null,
+        bp: -269,
+        ioniziationEnergies: [1312.0, 5,250.5],
+        energyLevels: [2],
     },
     { 
         atomicNumber: 3,
         symbol: "Li",
+        series: "Akali metals",
         name: "Lithium",
         atomicWeight: 9.9410,
+        mp: 180.54,
+        bp: 1342,
+        energyLevels: [2,1],
+        ioniziationEnergies: [520.2,7298.1,11815],
         description: "Lithium (from Greek: λίθος, romanized: lithos, lit. 'stone') is a chemical element with the symbol Li and atomic number 3. It is a soft, silvery-white alkali metal. Under standard conditions, it is the least dense metal and the least dense solid element. Like all alkali metals, lithium is highly reactive and flammable, and must be stored in vacuum, inert atmosphere, or inert liquid such as purified kerosene or mineral oil. It exhibits a metallic luster. It corrodes quickly in air to a dull silvery gray, then black tarnish. It does not occur freely in nature, but occurs mainly as pegmatitic minerals, which were once the main source of lithium. Due to its solubility as an ion, it is present in ocean water and is commonly obtained from brines. Lithium metal is isolated electrolytically from a mixture of lithium chloride and potassium chloride."
     },
     { 
         atomicNumber: 4,
+        series: "Alkaline earth metals",
         symbol: "Be",
+        mp: 1287,
+        bp: 2470,
+        energyLevels: [2,2],
         name: "Berylium",
         atomicWeight: 9.0122,
         description: "Beryllium is a chemical element with the symbol Be and atomic number 4. It is a steel-gray, strong, lightweight and brittle alkaline earth metal. It is a divalent element that occurs naturally only in combination with other elements to form minerals. Notable gemstones high in beryllium include beryl (aquamarine, emerald) and chrysoberyl. It is a relatively rare element in the universe, usually occurring as a product of the spallation of larger atomic nuclei that have collided with cosmic rays. Within the cores of stars, beryllium is depleted as it is fused into heavier elements. Beryllium constitutes about 0.0004 percent by mass of Earth's crust. The world's annual beryllium production of 220 tons is usually manufactured by extraction from the mineral beryl, a difficult process because beryllium bonds strongly to oxygen."
@@ -38,6 +52,11 @@ const elementData = [
     { 
         atomicNumber: 5,
         symbol: "B",
+        series: "Metalloids",
+        mp: 2075,
+        bp: 4000,
+        energyLevels: [2,3],
+        ioniziationEnergies: [380,2427.1,3659.7,25025.8,32826.7],
         name: "Boron",
         atomicWeight: 10.811,
         description: "Boron is a chemical element with the symbol B and atomic number 5. In its crystalline form it is a brittle, dark, lustrous metalloid; in its amorphous form it is a brown powder. As the lightest element of the boron group it has three valence electrons for forming covalent bonds, resulting in many compounds such as boric acid, the mineral sodium borate, and the ultra-hard crystals of boron carbide and boron nitride."
@@ -46,11 +65,19 @@ const elementData = [
         atomicNumber: 6,
         symbol: "C",
         name: "Carbon",
+        series: "Reactive nonmetals",
+        mp: 3642,
+        bp: 3642,
+        energyLevels: [2,4],
         atomicWeight: 12.011,
         description: "Carbon (from Latin carbo 'coal') is a chemical element with the symbol C and atomic number 6. It is nonmetallic and tetravalent—its atom making four electrons available to form covalent chemical bonds. It belongs to group 14 of the periodic table.[14] Carbon makes up about 0.025 percent of Earth's crust.[15] Three isotopes occur naturally, 12C and 13C being stable, while 14C is a radionuclide, decaying with a half-life of about 5,730 years.[16] Carbon is one of the few elements known since antiquity."
     },
     { 
         atomicNumber: 7,
+        series: "Reactive nonmetals",
+        mp: 2075,
+        bp: 4000,
+        energyLevels: [2,3],
         symbol: "N",
         name: "Nitrogen",
         atomicWeight: 14.007,
@@ -59,12 +86,20 @@ const elementData = [
     { 
         atomicNumber: 8,
         symbol: "O",
+        series: "Reactive nonmetals",
+        mp: -218,
+        bp: -183,
+        energyLevels: [2,6],
         name: "Oxygen",
         atomicWeight: 15.999,
         description: "Oxygen is the chemical element with the symbol O and atomic number 8. It is a member of the chalcogen group in the periodic table, a highly reactive nonmetal, and an oxidizing agent that readily forms oxides with most elements as well as with other compounds. Oxygen is Earth's most abundant element, and after hydrogen and helium, it is the third-most abundant element in the universe. At standard temperature and pressure, two atoms of the element bind to form dioxygen, a colorless and odorless diatomic gas with the formula O2. Diatomic oxygen gas currently constitutes 20.95% of the Earth's atmosphere, though this has changed considerably over long periods of time. Oxygen makes up almost half of the Earth\'s crust in the form of oxides."
     },
     { 
         atomicNumber: 9,
+        series: "Reactive nonmetals",
+        energyLevels: [2,7],
+        mp: -220,
+        bp: -188.1,
         symbol: "F",
         name: "Fluorine",
         atomicWeight: 18.998,
@@ -72,6 +107,9 @@ const elementData = [
     },
     { 
         atomicNumber: 10,
+        series: "Noble gases",
+        bp: -246.1,
+        mp: -248.6,
         symbol: "Ne",
         name: "Neon",
         atomicWeight: 20.180,
@@ -287,7 +325,12 @@ const elementData = [
         name: "Molybdenum",
         atomicWeight: 95.95
     },
-
+    { 
+        atomicNumber: 43,
+        symbol: "Tc",
+        name: "Technetium",
+        atomicWeight: 98
+    },
     { 
         atomicNumber: 44,
         symbol: "Ru",
@@ -305,6 +348,13 @@ const elementData = [
         symbol: "Pd",
         name: "Palladium",
         atomicWeight: 106.42
+    },
+
+    { 
+        atomicNumber: 47,
+        symbol: "Ag",
+        name: "Silver",
+        atomicWeight: 107.87
     },
 
     { 
@@ -326,6 +376,35 @@ const elementData = [
         symbol: "Sn",
         name: "Tin",
         atomicWeight: 118.71
+    },
+
+
+    { 
+        atomicNumber: 51,
+        symbol: "Sb",
+        name: "Antimony",
+        atomicWeight: 121.76
+    },
+
+    { 
+        atomicNumber: 52,
+        symbol: "Te",
+        name: "Tellurium",
+        atomicWeight: 127.60
+    },
+
+    { 
+        atomicNumber: 53,
+        symbol: "I",
+        name: "Iodine",
+        atomicWeight: 126.90
+    },
+
+    { 
+        atomicNumber: 54,
+        symbol: "Xe",
+        name: "Xenon",
+        atomicWeight: 131.29
     },
 ]
 
