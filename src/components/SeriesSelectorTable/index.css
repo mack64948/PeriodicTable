@@ -1,0 +1,132 @@
+:root{
+    --table-container-height: 300px;
+    --table-container-width: 500px;
+    --col-width: 50px;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.table-container{
+    position: relative;
+    width: var(--table-container-width);
+    height: var(--table-container-height);
+ 
+
+    display: grid;
+    grid-template-areas: 
+        "metals metals metals metals metals metals metalloids nonmetals nonmetals"
+        "alkali-metals alkaline-earth-metals lanthanoids lanthanoids trans-metals post-trans-metals metalloids reactive-non-metals noble-gases"
+        "alkali-metals alkaline-earth-metals lanthanoids lanthanoids trans-metals  post-trans-metals metalloids reactive-non-metals noble-gases"
+        "alkali-metals alkaline-earth-metals actinoids actinoids trans-metals  post-trans-metals metalloids reactive-non-metals noble-gases"
+        "alkali-metals alkaline-earth-metals actinoids actinoids trans-metals  post-trans-metals metalloids reactive-non-metals noble-gases";
+}
+
+.grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.metals-label, .nonmetals-label{
+    background-color: white;
+    border: 2px solid black;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-color: transparent;
+
+
+   
+}
+
+.metals-label{
+    position: inherit;
+    grid-area: metals;
+}
+
+.metalloids-selector{
+    position: inherit;
+    grid-area: metalloids;
+    background-color: teal;
+    width: 50px;
+}
+
+.column-text{  
+    /* position: absolute;
+    left: 20%;
+    width: 200px;
+    height: 30px; */
+   /* height: calc(var(--table-container-width)*0.05);
+   width: calc(var(--table-container-height)*0.8); */
+  
+  
+    display: inline-block;
+    width: 150px;
+    font-size: 20px;
+    background-color: orange;
+    transform: rotate(90deg);
+}
+
+.nonmetals-label{
+    position: inherit;
+    grid-area: nonmetals;
+}
+
+.alkali-metals-selector{
+    position: inherit;
+    grid-area: alkali-metals;
+    background-color: goldenrod;
+}
+
+.alkaline-earth-metals-selector{
+    position: inherit;
+    grid-area: alkaline-earth-metals;
+    background-color: yellow;
+}
+
+.transition-metals-selector{
+    position: inherit;
+    grid-area: trans-metals;
+    background-color: coral;
+    width: var(--col-width);
+}
+
+.post-transition-metals-selector{
+    position: inherit;
+    background-color: aqua;
+    grid-area: post-trans-metals;
+    width: var(--col-width);
+}
+
+.lanthanoids-selector{
+    position: inherit;
+    grid-area: lanthanoids;
+    background-color: burlywood;
+
+    
+}
+
+.actinoids-selector{
+    position: inherit;
+    grid-area: actinoids;
+    background-color: darkorchid;
+
+   
+}
+
+
+.reactive-nonmetals-selector{
+    position: inherit;
+    grid-area: reactive-non-metals;
+    background-color: lawngreen;
+    width: var(--col-width);
+}
+
+.noble-gases-selector{
+    position: inherit;
+    grid-area: noble-gases;
+    background-color: plum;
+    width: var(--col-width);
+}

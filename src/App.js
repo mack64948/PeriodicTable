@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { PeriodicTable } from './components/PeriodicTable';
+import { SeriesSelectorTable } from './components/SeriesSelectorTable';
+import { TemperatureWidget } from './components/TemperatureWidget';
+import { Sidebar } from './components/Sidebar';
+import { useState } from 'react';
+import ElementTableContext from './context';
+import { getElementInfo, getElementByAtomicNumber } from './data/data';
+import { NumSelectorWidget } from './components/NumSelectorWidget';
 
 function App() {
+  const [selectedAtomicNumber, setAtomicNumber] = useState(null);
+  const [mode,setCurrentMode] = useState('regular')
+
+  let sidebarElement = getElementByAtomicNumber(selectedAtomicNumber)
+  sidebarElement = sidebarElement || {}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ElementTableContext.Provider value={{mode,setCurrentMode}}>
+
+   
+    <div className="wrapper">
+
+
+   <div className="main-container">
+    <NumSelectorWidget initialNum={200} initialUnits={'C'} setPTableTemp={() => {}}></NumSelectorWidget>
+   <Sidebar info={sidebarElement}></Sidebar>
+    <PeriodicTable setSelected={(atomicNumber) => {
+      setAtomicNumber(atomicNumber);
+    }}></PeriodicTable>
+   </div>
+   </div>
+   </ElementTableContext.Provider>
   );
 }
 

@@ -1,0 +1,50 @@
+.pt-container{
+
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px black;
+    background-color: white;
+    height: 700px;
+    width: 100%;
+    min-width: 800px;
+    margin: 5px;
+    display: grid;
+    grid-template-columns: repeat(19, 1fr);
+    grid-template-rows:  repeat(8, 1fr);
+}
+
+.pt-element-container{
+    background-color: white;
+    border: thin solid black;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.filler{
+    background-color: transparent;
+    border: none;
+}
+
+.column-label, .row-label{
+    background-color: transparent;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.g1{
+    background-color: lightsalmon;
+}
+
+.g2{
+    background-color: yellow;
+}
+
+.tr-metal{
+    background-color: pink;
+}

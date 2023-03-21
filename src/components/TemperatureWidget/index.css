@@ -1,0 +1,44 @@
+:root{
+    --temp-bar-height: 50px;
+}
+.container{
+    width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.container label{
+    margin-right: 5px;
+    font-size: 2rem;
+}
+
+.container button{
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.temp-bar{
+    position: relative;
+    width: 100%;
+    height: var(--temp-bar-height);
+    background: linear-gradient(0.25turn,blue,white,yellow,orange,red);
+}
+
+.temp-selector{
+    position: absolute;
+    background-color: white;
+    cursor: move;
+    border-radius: 50%;
+    height: var(--temp-bar-height);
+    width: var(--temp-bar-height);
+    box-shadow: 1px 1px 4px black;
+}
