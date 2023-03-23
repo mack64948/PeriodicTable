@@ -133,7 +133,7 @@ function convertTemp(fromUnit,fromVal,toUnit){
             } else {
                 return (fromVal * 9/5) + 32
             }
-            break;
+          
         case 'K':
             if(toUnit === 'C'){
                 return fromVal - 273.15;
