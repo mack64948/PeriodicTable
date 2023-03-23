@@ -8,9 +8,7 @@ const elementData = [
         mp: -259.1,
         bp: -252.9,
         electronegativity: 2.20,
-        ioniziationEnergies: {
-            first: 1312.0,
-        },
+        ioniziationEnergies: [1312.0],
         energyLevels: [1],
         description: "Hydrogen is the chemical element with the symbol H and atomic number 1. Hydrogen is the lightest element. At standard conditions hydrogen is a gas of diatomic molecules having the formula H2. It is colorless, odorless, tasteless,[8] non-toxic, and highly combustible. Hydrogen is the most abundant chemical substance in the universe, constituting roughly 75% of all normal matter.[9][note 1] Stars such as the Sun are mainly composed of hydrogen in the plasma state. Most of the hydrogen on Earth exists in molecular forms such as water and organic compounds. For the most common isotope of hydrogen (symbol 1H) each atom has one proton, one electron, and no neutrons."
     
@@ -209,6 +207,7 @@ const elementData = [
     { 
         atomicNumber: 20,
         symbol: "Ca",
+        electronegativity: 1,
         series: "Alkaline earth metals",
         name: "Calcium",
         atomicWeight: 40.078,
@@ -216,6 +215,7 @@ const elementData = [
     },
     { 
         atomicNumber: 21,
+        electronegativity: 1.36,
         symbol: "Sc",
         series: "Transition metals",
         name: "Scandium",
@@ -224,6 +224,7 @@ const elementData = [
     { 
         atomicNumber: 22,
         symbol: "Ti",
+        electronegativity: 1.54,
         series: "Transition metals",
         name: "Titanium",
         atomicWeight: 47.867
@@ -231,6 +232,7 @@ const elementData = [
     { 
         atomicNumber: 23,
         symbol: "Va",
+        electronegativity: 1.63,
         series: "Transition metals",
         name: "Vanadium",
         atomicWeight: 50.942
@@ -238,6 +240,7 @@ const elementData = [
     { 
         atomicNumber: 24,
         symbol: "Cr",
+        electronegativity: 1.66,
         series: "Transition metals",
         name: "Chromium",
         atomicWeight: 51.996
@@ -245,6 +248,7 @@ const elementData = [
     { 
         atomicNumber: 25,
         symbol: "Mn",
+        electronegativity: 1.55,
         series: "Transition metals",
         name: "Manganese",
         atomicWeight: 54.938
@@ -252,6 +256,7 @@ const elementData = [
     { 
         atomicNumber: 26,
         symbol: "Fe",
+        electronegativity: 1.83,
         series: "Transition metals",
         name: "Iron",
         atomicWeight: 55.845
@@ -259,6 +264,7 @@ const elementData = [
     { 
         atomicNumber: 27,
         symbol: "Co",
+        electronegativity: 1.88,
         series: "Transition metals",
         name: "Cobalt",
         atomicWeight: 58.933
@@ -266,6 +272,7 @@ const elementData = [
     { 
         atomicNumber: 28,
         symbol: "Ni",
+        electronegativity: 1.91,
         series: "Transition metals",
         name: "Nickel",
         atomicWeight: 58.693
@@ -273,6 +280,7 @@ const elementData = [
     { 
         atomicNumber: 29,
         symbol: "Cu",
+        electronegativity: 1.90,
         series: "Transition metals",
         name: "Copper",
         atomicWeight: 63.546
@@ -280,6 +288,7 @@ const elementData = [
     { 
         atomicNumber: 30,
         symbol: "Zn",
+        electronegativity: 1.65,
         series: "Transition metals",
         name: "Zinc",
         atomicWeight: 65.380
@@ -287,6 +296,8 @@ const elementData = [
     { 
         atomicNumber: 31,
         symbol: "Ga",
+        electronegativity: 1.65,
+        energyLevels: [2,8,18,2],
         series: "Post-transition metals",
         name: "Gallium",
         atomicWeight: 69.723
@@ -294,6 +305,8 @@ const elementData = [
     { 
         atomicNumber: 32,
         symbol: "Ge",
+        electronegativity: 2.01,
+        energyLevels: [2,8,18,4],
         series: "Metalloids",
         name: "Germanium",
         atomicWeight: 72.640
@@ -301,6 +314,8 @@ const elementData = [
     { 
         atomicNumber: 33,
         symbol: "As",
+        energyLevels: [2,8,18,5],
+        electronegativity: 2.18,
         series: "Metalloids",
         name: "Arsenic",
         atomicWeight: 74.922
@@ -309,6 +324,8 @@ const elementData = [
     { 
         atomicNumber: 34,
         symbol: "Se",
+        electronegativity: 2.55,
+        energyLevels: [2,8,18,6],
         name: "Selenium",
         series: "Reactive nonmetals",
         atomicWeight: 78.960
@@ -317,6 +334,8 @@ const elementData = [
     { 
         atomicNumber: 35,
         symbol: "Br",
+        energyLevels: [2,8,18,7],
+        electronegativity: 2.96,
         name: "Bromium",
         series: "Reactive nonmetals",
         atomicWeight: 79.904
@@ -325,6 +344,8 @@ const elementData = [
     { 
         atomicNumber: 36,
         symbol: "Kr",
+        electronegativity: 3.0,
+        energyLevels: [2,8,18,8],
         name: "Krypton",
         series: "Noble gases",
         atomicWeight: 83.798
@@ -333,6 +354,8 @@ const elementData = [
     { 
         atomicNumber: 37,
         symbol: "Rb",
+        electronegativity: 0.82,
+        energyLevels: [2,8,18,8,1],
         name: "Rubidium",
         series: "Alkali metals",
         atomicWeight: 85.468
@@ -340,14 +363,18 @@ const elementData = [
 
     { 
         atomicNumber: 38,
+        electronegativity:0.96,
+        energyLevels: [2,8,18,2], 
         symbol: "Sr",
         series: "Alkaline earth metals",
         name: "Strontium",
-        atomicWeight: 87.62
+        atomicWeight: 87.6 
     },
     { 
         atomicNumber: 39,
         symbol: "Y",
+        electronegativity: 1.22,
+        energyLevels: [2,8,18,9,2],
         series: "Transition metals",
         name: "Yttrium",
         atomicWeight: 88.906
@@ -356,6 +383,8 @@ const elementData = [
     { 
         atomicNumber: 40,
         symbol: "Zr",
+        energyLevels: [2,8,18,10,2],
+        electronegativity: 1.33,
         name: "Zirconium",
         series: "Transition metals",
         atomicWeight: 91.224
@@ -363,6 +392,8 @@ const elementData = [
 
     { 
         atomicNumber: 41,
+        electronegativity: 1.6,
+        energyLevels: [2,8,18,12,1],
         symbol: "Nb",
         series: "Transition metals",
         name: "Niobium",
@@ -371,6 +402,8 @@ const elementData = [
 
     { 
         atomicNumber: 42,
+        electronegativity: 2.16,
+        energyLevels: [2,8,18,13,1],
         symbol: "Mo",
         series: "Transition metals",
         name: "Molybdenum",
@@ -379,6 +412,8 @@ const elementData = [
     { 
         atomicNumber: 43,
         symbol: "Tc",
+        electronegativity: 1.9,
+        energyLevels: [2,8,18,13,2],
         series: "Transition metals",
         name: "Technetium",
         atomicWeight: 98
@@ -386,6 +421,8 @@ const elementData = [
     { 
         atomicNumber: 44,
         symbol: "Ru",
+        energyLevels: [2,8,18,15,1],
+        electronegativity: 2.2,
         series: "Transition metals",
         name: "Ruthenium",
         atomicWeight: 101.07
@@ -394,6 +431,8 @@ const elementData = [
         atomicNumber: 45,
         series: "Transition metals",
         symbol: "Rh",
+        electronegativity: 2.28,
+        energyLevels: [2,8,18,16,1],
         name: "Rhodium",
         atomicWeight: 102.91,
         energyLevels: [2,8,18,16,1],
@@ -405,11 +444,13 @@ const elementData = [
         series: "Transition metals",
         atomicNumber: 46,
         symbol: "Pd",
+        electronegativity: 2.20,
+     
         name: "Palladium",
         atomicWeight: 106.42,
         mp: 1554.90,
         bp: 2963,
-        energyLevels: [2,8,18,19],
+        energyLevels: [2,8,18,18],
         description: "Palladium is a chemical element with the symbol Pd and atomic number 46. It is a rare and lustrous silvery-white metal discovered in 1803 by the English chemist William Hyde Wollaston. He named it after the asteroid Pallas, which was itself named after the epithet of the Greek goddess Athena, acquired by her when she slew Pallas. Palladium, platinum, rhodium, ruthenium, iridium and osmium form a group of elements referred to as the platinum group metals (PGMs). They have similar chemical properties, but palladium has the lowest melting point and is the least dense of them."
     },
 
@@ -417,17 +458,21 @@ const elementData = [
         atomicNumber: 47,
         series: "Transition metals",
         symbol: "Ag",
+        electronegativity: 1.93,
+        energyLevels: [2,8,18,18,1],
         name: "Silver",
         atomicWeight: 107.87,
         bp: 2162,
         mp: 961.780,
-        energyLevels: [2,8,18,18,1]
+      
     },
 
     { 
         atomicNumber: 48,
         symbol: "Cd",
         name: "Cadmium",
+        energyLevels: [2,8,18,18,2],
+        electronegativity: 1.69,
         series: "Transition metals",
         atomicWeight: 112.41
     },
@@ -435,6 +480,8 @@ const elementData = [
     { 
         atomicNumber: 49,
         symbol: "In",
+        electronegativity: 1.78,
+        energyLevels: [2,8,18,18,3],
         name: "Indium",
         atomicWeight: 114.82,
         series: "Post-transition metals",
@@ -444,6 +491,8 @@ const elementData = [
     { 
         atomicNumber: 50,
         symbol: "Sn",
+        electronegativity: 1.96,
+        energyLevels: [2,8,18,18,4],
         series: "Post-transition metals",
         name: "Tin",
         atomicWeight: 118.71
@@ -453,6 +502,8 @@ const elementData = [
     { 
         atomicNumber: 51,
         symbol: "Sb",
+        electronegativity: 2.05,
+        energyLevels: [2,8,18,18,5],
         series: "Metalloids",
         name: "Antimony",
         atomicWeight: 121.76
@@ -463,12 +514,16 @@ const elementData = [
         series: "Metalloids",
         symbol: "Te",
         name: "Tellurium",
-        atomicWeight: 127.60
+        atomicWeight: 127.60,
+        electronegativity: 2.1,
+        energyLevels: [2,8,18,18,6]
     },
 
     { 
         atomicNumber: 53,
         symbol: "I",
+        electronegativity: 2.66,
+        energyLevels: [2,8,18,18,7],
         series: "Reactive nonmetals",
         name: "Iodine",
         atomicWeight: 126.90
@@ -477,6 +532,8 @@ const elementData = [
     { 
         atomicNumber: 54,
         symbol: "Xe",
+        electronegativity: 2.6,
+        energyLevels: [2,8,18,18,8],
         series: "Noble gases",
         name: "Xenon",
         atomicWeight: 131.29
@@ -487,6 +544,8 @@ const elementData = [
         symbol: "Cs",
         series: "Alkali metals",
         name: "Cesium",
+        electronegativity: 0.79,
+        energyLevels: [2,8,18,18,8,1],
         atomicWeight: 132.905
     },
 
@@ -494,12 +553,16 @@ const elementData = [
         atomicNumber: 56,
         series: "Alkaline earth metals",
         symbol: "Ba",
+        electronegativity: 0.89,
+        energyLevels: [2,8,18,18,8,2],
         name: "Barium",
         atomicWeight: 137.33
     },
     { 
         atomicNumber: 57,
         symbol: "La",
+        energyLevels: [2,8,18,18,9,2],
+        electronegativity: 1.10,
         series: "Lanthanoids",
         name: "Lanthanum",
         atomicWeight: 138.91
@@ -508,6 +571,8 @@ const elementData = [
     { 
         atomicNumber: 58,
         symbol: "Ce",
+        energyLevels: [2,8,18,19,9,2],
+        electronegativity: 1.12,
         series: "Lanthanoids",
         name: "Cerium",
         atomicWeight: 140.12
@@ -516,6 +581,8 @@ const elementData = [
         atomicNumber: 59,
         series: "Lanthanoids",
         symbol: "Pr",
+        electronegativity: 1.13,
+        energyLevels: [2,8,18,21,8,2],
         name: "Praseodymium",
         atomicWeight: 140.91
     },
@@ -523,6 +590,8 @@ const elementData = [
         atomicNumber: 60,
         series: "Lanthanoids",
         symbol: "Nd",
+        energyLevels: [2,8,18,22,8,2],
+        electronegativity: 1.14,
         name: "Neodymium",
         atomicWeight: 144.24
     },
@@ -535,6 +604,8 @@ const elementData = [
     },
     { 
         atomicNumber: 62,
+        electronegativity: 1.17,
+        energyLevels: [2,8,18,24,8,2],
         series: "Lanthanoids",
         symbol: "Sm",
         name: "Samarium",
@@ -542,6 +613,8 @@ const elementData = [
     },
     { 
         atomicNumber: 63,
+        energyLevels: [2,8,18,25,8,2],
+        electronegativity: null,
         series: "Lanthanoids",
         symbol: "Eu",
         name: "Europium",
@@ -549,6 +622,8 @@ const elementData = [
     },
     { 
         atomicNumber: 64,
+        energyLevels: [2,8,18,25,9,2],
+        electronegativity: 1.20,
         series: "Lanthanoids",
         symbol: "Gd",
         name: "Gadolinium",
@@ -556,6 +631,8 @@ const elementData = [
     },
     { 
         atomicNumber: 65,
+        electronegativity: null,
+        energyLevels: [2,8,18,27,8,2],
         series: "Lanthanoids",
         symbol: "Tb",
         name: "Terbium",
@@ -563,6 +640,8 @@ const elementData = [
     },
     { 
         atomicNumber: 66,
+        energyLevels: [2,8,18,28,8,2],
+        electronegativity: 1.22,
         series: "Lanthanoids",
         symbol: "Dy",
         name: "Dysprosium",
@@ -573,12 +652,16 @@ const elementData = [
         atomicNumber: 67,
         series: "Lanthanoids",
         symbol: "Ho",
+        energyLevels: [2,8,18,29,8,2],
+        electronegativity: 1.23,
         name: "Holmium",
         atomicWeight: 164.93
     },
     { 
         atomicNumber: 68,
         symbol: "Er",
+        electronegativity: 1.24,
+        energyLevels: [2,8,18,30,8,2],
         series: "Lanthanoids",
         name: "Erbium",
         atomicWeight: 167.26
@@ -586,6 +669,8 @@ const elementData = [
     { 
         atomicNumber: 69,
         symbol: "Tm",
+        energyLevels: [2,8,18,31,8,2],
+        electronegativity: 1.25,
         name: "Thulium",
         series: "Lanthanoids",
         atomicWeight: 168.93
@@ -594,6 +679,8 @@ const elementData = [
     { 
         atomicNumber: 70,
         symbol: "Yb",
+        electronegativity: null,
+        energyLevels: [2,8,18,32,8,2],
         series: "Lanthanoids",
         name: "Ytterbium",
         atomicWeight: 173.05
@@ -604,7 +691,9 @@ const elementData = [
         series: "Lanthanoids",
         symbol: "Lu",
         name: "Lutetium",
-        atomicWeight: 174.97
+        atomicWeight: 174.97,
+        electronegativity: 1.27,
+        energyLevels: [2,8,18,32,9,2]
     },
 
     { 
@@ -612,14 +701,18 @@ const elementData = [
         series: "Transition metals",
         symbol: "Hf",
         name: "Hafnium",
-        atomicWeight: 178.486
+        atomicWeight: 178.486,
+        energyLevels: [2,8,18,32,10,2],
+        electronegativity: 1.3
     },
     { 
         atomicNumber: 73,
         series: "Transition metals",
         symbol: "Ta",
         name: "Tantalum",
-        atomicWeight: 180.95
+        atomicWeight: 180.95,
+        electronegativity: 1.5,
+        energyLevels: [2,8,18,32,11,2]
     },
     
 
@@ -627,6 +720,8 @@ const elementData = [
         atomicNumber: 74,
         series: "Transition metals",
         symbol: "W",
+        electronegativity: 2.36,
+        energyLevels: [2,8,18,32,12,2],
         name: "Tungsten",
         atomicWeight: 183.84
     },
@@ -636,7 +731,9 @@ const elementData = [
         series: "Transition metals",
         symbol: "Re",
         name: "Rhenium",
-        atomicWeight: 186.21
+        atomicWeight: 186.21,
+        electronegativity: 1.9,
+        energyLevels: [2,8,18,32,13,2]
     },
 
     { 
@@ -644,7 +741,9 @@ const elementData = [
         series: "Transition metals",
         symbol: "Os",
         name: "Osmium",
-        atomicWeight: 190.23
+        atomicWeight: 190.23,
+        energyLevels: [2,8,18,32,14,2],
+        electronegativity: 2.20
     },
 
 
@@ -652,6 +751,8 @@ const elementData = [
         atomicNumber: 77,
         symbol: "Ir",
         name: "Iridium",
+        electronegativity: 2.20,
+        energyLevels: [2,8,18,32,15,2],
         atomicWeight: 192.22,
         series: "Transition metals"
     },
@@ -659,6 +760,8 @@ const elementData = [
     { 
         atomicNumber: 78,
         symbol: "Pt",
+        electronegativity: 2.28,
+        energyLevels: [2,8,18,32,17,1],
         name: "Platinum",
         atomicWeight: 195.08,
         series: "Transition metals"
@@ -669,6 +772,8 @@ const elementData = [
         atomicNumber: 79,
         symbol: "Au",
         name: "Gold",
+        energyLevels: [2,8,18,32,18,1],
+        electronegativity: 2.54,
         atomicWeight: 196.97,
         series: "Transition metals"
 
@@ -677,12 +782,16 @@ const elementData = [
         atomicNumber: 80,
         symbol: "Hg",
         name: "Mercury",
+        electronegativity: 2.0,
+        energyLevels: [2,8,18,32,18,2],
         atomicWeight: 200.59,
         series: "Transition metals"
 
     },
     { 
         atomicNumber: 81,
+        energyLevels: [2,8,18,32,18,3],
+        electronegativity: 1.62,
         symbol: "Tl",
         name: "Thallium",
         atomicWeight: 204.38,

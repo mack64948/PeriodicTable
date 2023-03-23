@@ -1,4 +1,5 @@
 import { elementData } from "../data/data";
+import { getLinearNormalizedAtomicWeight } from "../data/data";
 
 const colorDict = {
 
@@ -79,9 +80,34 @@ function getBackgroundColorWithSeriesKey(theme,seriesKey){
     return colorDict[theme][seriesKey]
 }
 
-function getBackgroundColor(theme,series){
+function getSeriesColor(theme,series){
     let seriesKey = getSeriesKey(series)
     return getBackgroundColorWithSeriesKey(theme,seriesKey)
+}
+
+function getAtomicWeightBGColor(elementInfo){
+    let normalizedAW = getLinearNormalizedAtomicWeight(elementInfo.atomicWeight)
+    console.log("normalizedAW: " + normalizedAW)
+    let greenVal = 255*(1-normalizedAW);
+    let blueVal = 255*(1-normalizedAW);
+
+    return `rgb(255,${greenVal},${blueVal})`;
+}
+
+function getElementColor(mode,theme,elementInfo){
+    switch(mode){
+        case "regular":
+            return getSeriesColor(theme,elementInfo.series)
+        case "slg":
+            return getSeriesColor(theme,elementInfo.series)
+            break;
+        case 'atomic-weight':
+            return getAtomicWeightBGColor(elementInfo)
+        default:
+            return getSeriesColor(theme,elementInfo.series)
+
+    }
+
 }
 
 
@@ -95,4 +121,35 @@ function searchElements(searchString){
     return resultsArray;
 }
 
-export { searchElements,getBackgroundColor}
+function determineState(mp,bp,currentTemp){
+
+}
+
+function convertTemp(fromUnit,fromVal,toUnit){
+    switch(fromUnit){
+        case 'C':
+            if(toUnit === 'K'){
+                return fromVal + 273.15;
+            } else {
+                return (fromVal * 9/5) + 32
+            }
+            break;
+        case 'K':
+            if(toUnit === 'C'){
+                return fromVal - 273.15;
+            } else {
+                return ((fromVal - 273.15) * 9/5) + 32
+            }
+            break;
+        case 'F':
+            if(toUnit === 'C'){
+                return (fromVal - 32) * 5/9
+            } else {
+                return ((fromVal - 32) * 5/9) + 273.15
+            };
+        default:
+            break;
+    }
+}
+
+export { determineState, convertTemp, getElementColor, searchElements,getSeriesColor, getAtomicWeightBGColor}

@@ -9,11 +9,13 @@ import ElementTableContext from './context';
 import { getElementInfo, getElementByAtomicNumber } from './data/data';
 import { NumSelectorWidget } from './components/NumSelectorWidget';
 import { ModalWindow } from './components/ModalWindow';
-
+import { ECDiagrams } from './components/ECDiagrams';
 
 function App() {
   const [searchIsActive,setActiveSearch] = useState(false)
   const [searchResults,setSearchResults] = useState([])
+  const [userTemp,setUserTemp] = useState(0)
+  const [userTempUnits,setUserTempUnits] = useState('C')
 
   const [selectedAtomicNumber, setAtomicNumber] = useState(null);
   const [mode,setCurrentMode] = useState('regular')
@@ -28,17 +30,26 @@ function App() {
 
   useEffect(() => {
     setAtomicNumber(1);
+    setUserTemp(25)
+    setUserTempUnits('C')
   }, [])
 
   return (
-    <ElementTableContext.Provider value={{mode,setCurrentMode, theme, setTheme, layout, setLayout, searchIsActive,setActiveSearch,searchResults,setSearchResults}}>
+    <ElementTableContext.Provider value={{
+        userTemp, setUserTemp,
+        userTempUnits,setUserTempUnits,
+        mode,setCurrentMode,
+        theme, setTheme, 
+        layout, setLayout, 
+        searchIsActive,setActiveSearch,
+        searchResults,setSearchResults}}>
       <Header></Header>
       {isShowingModal && <ModalWindow elementName={sidebarElement.name} setModalStatus={() => { setModalStatus(false) }} modalLink={modalLink}></ModalWindow>}
    
     <div className={"wrapper " + isShowingModal && "modal-overlay"}>
 
    <div className={"main-container " + (layout === 'sidebar-left' ? "flex-row" : "flex-col")}>
-   <Sidebar setModalLink={(href) => {
+   {/* <Sidebar setModalLink={(href) => {
       setModalStatus(true);
       setModalLink(href);
       let modalWindow = document.querySelector('.modal-window');
@@ -56,10 +67,12 @@ function App() {
      
       
 
-   }} info={sidebarElement}></Sidebar>
-    <PeriodicTable setSelected={(atomicNumber) => {
+   }} info={sidebarElement}></Sidebar> */}
+    {/* <PeriodicTable setSelected={(atomicNumber) => {
       setAtomicNumber(atomicNumber);
-    }}></PeriodicTable>
+    }}></PeriodicTable> */}
+
+    <ECDiagrams></ECDiagrams>
    </div>
    </div>
    </ElementTableContext.Provider>

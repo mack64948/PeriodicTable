@@ -29,10 +29,27 @@
 
 .info-container{
     display: flex;
+    align-items: center;
     justify-content: space-between;
     border: 2px solid transparent;
     padding: 2px 4px;
 }
+
+.state-selector{
+    position: relative;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    text-transform: capitalize;
+    color: black;
+    background: lightblue;
+    text-align: left;
+    padding: 0 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 
 .info-container:hover{
     cursor: pointer;

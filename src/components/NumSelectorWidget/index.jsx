@@ -1,62 +1,52 @@
 import "./index.css"
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import ElementTableContext from "../../context";
+import { convertTemp } from "../../utils/helper_functions";
 
-export const NumSelectorWidget = ({initialNum,initialUnits,setPTableTemp}) => {
-    const [num,setNum] = useState(initialNum)
-    const [units,setUnits] = useState(initialUnits)
-    const prevUnit = useRef(initialUnits)
+
+export const NumSelectorWidget = () => {
+    const {userTemp,setUserTemp,userTempUnits,setUserTempUnits} = useContext(ElementTableContext);
+    const prevUnit = useRef(userTempUnits)
 
     useEffect(() => {
+        
+        let newTemp = convertTemp(prevUnit.current,userTemp,userTempUnits)
+    
+        setUserTemp(newTemp)
 
-        switch(units){
-            case 'C':
-                if(prevUnit.current === 'F'){
+        prevUnit.current = userTempUnits;
+    }, [userTempUnits])
 
-                } else if(prevUnit.current === 'K') {
-
-                }
-                break;
-            case 'K':
-                if(prevUnit.current === 'F'){
-
-                } else if(prevUnit.current === 'C') {
-
-                }
-                break;
-            case 'F':
-                if(prevUnit.current === 'C'){
-
-                } else if(prevUnit.current === 'K') {
-
-                }
-                break;
-            default:
-                break;
-        }
-
-        prevUnit.current = units;
-    }, [units])
     return (<div className="container">
-        <input onChange={
+        <input class="temp-input" onChange={
             (e) => {
-                setNum(e.target.value);
-                setPTableTemp(num);
+                
+                setUserTemp(e.target.value);
             }
-        } value={num} type="text">
+        } value={userTemp} type="text">
             
         </input>
 
         <div className="button-group">
             <a onClick={() => {
-                setNum(num+1);
-                setPTableTemp(num);
+                setUserTemp(userTemp+1);
             }}>+</a>
             <a onClick={() => {
-                setNum(num-1);
-                setPTableTemp(num);
+                setUserTemp(userTemp-1);
             }}>-</a>
         </div>
        
-        <label>&deg;{units}</label>
+        <label>
+            <select class="unit-selector" onChange={
+                (e) => {
+                    let newUnits = e.target.value;
+                    setUserTempUnits(newUnits)
+                }
+            }>
+                <option value='K'>&deg;K</option>
+                <option value='C'>&deg;C</option>
+                <option value='F'>&deg;F</option>
+            </select>
+        </label>
     </div>);
 }

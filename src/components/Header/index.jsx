@@ -31,7 +31,12 @@ export const Header = () => {
 
             <a className={"navlink " + (theme === "dark" ? "navlink-dark" : "navlink-light")}>
                 <i className="fa-regular fa-atom-simple"></i>
-                <span>Compounds</span>
+                <span>EC Diagrams</span>
+            </a>
+
+            <a className={"navlink " + (theme === "dark" ? "navlink-dark" : "navlink-light")}>
+                <i className="fa-regular fa-atom-simple"></i>
+                <span>3D Models</span>
             </a>
         </div>
 

@@ -12,7 +12,7 @@ export const TemperatureWidget = () => {
 
     }, [])
 
-    return (<div className="container">
+    return (<div className="temp-slider-container">
         <label>Temperature: </label>
         <button onClick={
             (e) => {

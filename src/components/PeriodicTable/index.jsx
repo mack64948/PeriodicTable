@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { getElementByAtomicNumber, getElementInfo } from "../../data/data";
 import ElementTableContext from "../../context";
 import { useContext } from "react";
+import { TemperatureWidget } from "../TemperatureWidget";
 
 const tableData = [
     //column labels
@@ -42,6 +43,8 @@ const tableData = [
         "g6 atnum-52", "g7 halogens atnum-53", 
         "g8 noble-gases atnum-54" ], //period 5
 
+  
+
     ["row-label","g1 alkali-metal atnum-55", 
     "g2 alkaline-earth-metal atnum-56", 
     "filler",
@@ -57,6 +60,8 @@ const tableData = [
     "g3 atnum-81", "g4 atnum-82",
     "g5 atnum-83", "g6 atnum-84","g7 atnum-85", 
     "g8 halogens atnum-86",  ], //period 6
+
+   
 
     ["row-label","g1 alkali-metal atnum-87", 
     "g2 alkaline-earth-metal atnum-88", 
@@ -74,13 +79,20 @@ const tableData = [
     "g5 atnum-115", "g6 atnum-116","g7 atnum-117", 
     "g8 halogens atnum-118",  ], //period 7
 
-    ["filler","filler","filler","row-label",
+    ["filler","filler","filler","filler","filler","filler","filler","filler","filler",
+    "filler","filler","filler","filler","filler","filler",
+    "filler","filler","filler", "filler"
+    ],
+
+  
+
+    ["filler","filler","filler","filler",
         "atnum-57","atnum-58","atnum-59","atnum-60",
         "atnum-61","atnum-62","atnum-63","atnum-64",
         "atnum-65","atnum-66","atnum-67","atnum-68",
         "atnum-69","atnum-70","atnum-71"],
 
-    ["filler","filler","filler","row-label",
+    ["filler","filler","filler","filler",
         "atnum-89","atnum-90","atnum-91","atnum-92",
         "atnum-93","atnum-94","atnum-95","atnum-96",
         "atnum-97","atnum-98","atnum-99","atnum-100",
@@ -102,10 +114,11 @@ export const PeriodicTable = ({setSelected}) => {
     const { theme, searchIsActive } = useContext(ElementTableContext);
   
 
-    return (<div className={"pt-container " + (theme === "dark" ? "dark-bg" : "light-bg") + (searchIsActive ? " active-search" : "")}>
+    return (
 
+    <div className={"pt-container " + (theme === "dark" ? "dark-bg" : "light-bg") + (searchIsActive ? " active-search" : "")}>
 
-
+    
         {
             tableData.map((stringArr,rowIndex) => {
                 if(rowIndex === 0){
@@ -115,9 +128,9 @@ export const PeriodicTable = ({setSelected}) => {
                 } else {
 
                     return stringArr.map((data,index) => {
-                        return index === 0 ? <div className={"pt-element-container row-label " + (theme === "dark" ? "light-text" : "dark-text")}>{rowIndex}</div> :
+                        return index === 0 ? <div className={"pt-element-container row-label " + (theme === "dark" ? "light-text" : "dark-text")}>{rowIndex < 8 ? rowIndex : (rowIndex === 8 ? "Periods 6 & 7 (cont)" : "") }</div> :
                             data.indexOf('filler') === -1 ?   
-                            <ElementContainer mouseOverHandler={
+                            <ElementContainer  mouseOverHandler={
                                 () => {
                                  
                                     let atomicNumber = getAtomicNumberFromTableDataString(data);
