@@ -1,23 +1,50 @@
 .sidebar-container{
     background-color: lightgrey;
-    width: 300px;
-    min-width: 300px;
-    height: 700px;
+    border-radius: 10px;
+    flex: 1 0 30%;
+    width: 100%;
+    /* min-width: 300px;
+    max-width: 400px; */
+    height: 100%;
     border: 2px solid black;
     padding: 10px 5px;
 
     display: flex;
-    flex-direction: column;
     justify-content: flex-start;
     gap: 10px;
+}
+
+.flex-row{
+    flex-direction: row;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.sidebar-container > div:not(.element-thumbnail){
+    flex: 1 0 30%;
+    max-width: 350px;
 }
 
 .info-container{
     display: flex;
     justify-content: space-between;
+    border: 2px solid transparent;
+    padding: 2px 4px;
+}
+
+.info-container:hover{
+    cursor: pointer;
+    border: 2px solid magenta;
+}
+
+.info-container label:hover{
+    cursor: pointer;
 }
 
 .element-thumbnail{
+ 
     padding: 10px;
     width: 200px;
     height: 200px;
@@ -25,8 +52,21 @@
     border: 10px ridge green;
 
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2px;
+}
+
+.element-thumbnail-left{
+    display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.element-thumbnail-right{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .symbol-text{
