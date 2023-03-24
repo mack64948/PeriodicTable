@@ -1,8 +1,17 @@
+/** External CSS */
 import "./index.css"
+
+/** React Components */
 import { Sidebar } from "../Sidebar";
 import { PeriodicTable } from "../PeriodicTable";
+
+/** React Context */
 import ElementTableContext from "../../context";
+
+/** React Hooks */
 import { useContext } from "react";
+
+/** Helper Functions */
 import { getElementByAtomicNumber } from "../../data/data";
 
 export const PeriodicTableViewer = () => { 

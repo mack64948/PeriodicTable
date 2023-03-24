@@ -28,6 +28,7 @@ import { getElementInfo, getElementByAtomicNumber } from './data/data';
 import { NumSelectorWidget } from './components/NumSelectorWidget';
 
 function App() {
+  const [hasClickedElement,setHasClickedElement] = useState(false)
   const [searchIsActive,setActiveSearch] = useState(false)
   const [searchResults,setSearchResults] = useState([])
   const [userTemp,setUserTemp] = useState(0)
@@ -53,6 +54,7 @@ function App() {
   return (
     <Router>
     <ElementTableContext.Provider value={{
+        hasClickedElement,setHasClickedElement,
         selectedAtomicNumber, setAtomicNumber,
         userTemp, setUserTemp,
         userTempUnits,setUserTempUnits,

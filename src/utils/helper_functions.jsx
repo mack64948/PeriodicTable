@@ -152,4 +152,13 @@ function convertTemp(fromUnit,fromVal,toUnit){
     }
 }
 
-export { determineState, convertTemp, getElementColor, searchElements,getSeriesColor, getAtomicWeightBGColor}
+function getAtomicNumberFromTableDataString(dataString){
+    let startIndex = dataString.indexOf("atnum-") + 6;
+    let numStr = dataString.slice(startIndex)
+   
+    let result =  parseInt(numStr);
+
+    return result
+}
+
+export { getAtomicNumberFromTableDataString, determineState, convertTemp, getElementColor, searchElements,getSeriesColor, getAtomicWeightBGColor}

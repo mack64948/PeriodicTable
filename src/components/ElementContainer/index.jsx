@@ -13,9 +13,26 @@ import { getLinearNormalizedAtomicWeight } from "../../data/data";
 import { getElementColor, getSeriesColor } from "../../utils/helper_functions";
 import { getAtomicWeightBGColor } from "../../utils/helper_functions";
 
+const restoreDefaultBorders = (callback) => {
+        let elementContainers = document.querySelectorAll(".element-container:not(.filler):not(.row-label):not(.column-label")
+        
+        for(let i = 0; i < elementContainers.length; i++){
+            let elementContainer = elementContainers[i];
+            elementContainer.style.border = "2px solid black";
+        }
+
+        if(callback !== null && callback !== undefined){
+            callback();
+        }
+       
+}
+
 export const ElementContainer = ({elementInfo,mouseOverHandler}) => {
-    const {mode,theme, searchIsActive, searchResults} = useContext(ElementTableContext);
-    const [isActive,setIsActive] = useState(false);
+    const { hasClickedElement,setHasClickedElement,
+        setAtomicNumber,selectedAtomicNumber,
+        mode,theme, searchIsActive, searchResults} = useContext(ElementTableContext);
+    
+        const [isActive,setIsActive] = useState(false);
 
 
     let currentStyle = {
@@ -33,35 +50,56 @@ export const ElementContainer = ({elementInfo,mouseOverHandler}) => {
     
     let elementContainerClass = "element-container";
 
-    return (<div onMouseDown={(e) => {
-        let ptcontainer = document.querySelector(".pt-container")
-        let elementContainers = ptcontainer.children;
+    return (<div onClick={(e) => {
         
-    
-        for(let i = 0; i < elementContainers.length; i++){
-            let elementContainer = elementContainers[i]
-            elementContainer.classList.remove("is-active")
+        let element = e.target;
+        let isElementContainer = element.classList.contains('element-container') 
+
+        if(isElementContainer && hasClickedElement && selectedAtomicNumber === elementInfo.atomicNumber){
+            setHasClickedElement(false)
+            element.style.border = "2px solid black"
+         
+        } else if(isElementContainer && !hasClickedElement) {
+          
+            setHasClickedElement(true)
+            element.style.border = "2px solid magenta"
+            setAtomicNumber(elementInfo.atomicNumber)
         }
+       
 
-        setIsActive(true);
+        if(hasClickedElement){
+           
+            let element = e.target; 
         
-        e.target.classList.add("is-active")
-
-    }} onMouseOver={() => {
-        let ptcontainer = document.querySelector(".pt-container")
-        let elementContainers = ptcontainer.children;
-        
-        let hasActive = false
-        for(let i = 0; i < elementContainers.length; i++){
-            let elementContainer = elementContainers[i]
-            if(elementContainer.classList.contains('is-active')){
-                hasActive = true
+            if(element && element.classList.contains('element-container')){
+                restoreDefaultBorders(() => {
+                
+                });
+               
             }
-        }
+        } 
 
-        if(!hasActive){
-            mouseOverHandler()
+
+    }} 
+    
+    onMouseEnter={ (e) => {
+        let div = e.target;
+        if(div.classList.contains("element-container") && !hasClickedElement){
+            div.style.border = "2px solid magenta";
+            setAtomicNumber(elementInfo.atomicNumber)
         }
+      
+    }}
+
+    onMouseLeave={(e) => {
+        let div = e.target;
+        if(div.classList.contains("element-container") && !hasClickedElement){
+            div.style.border = "2px solid black";
+        }
+        
+    }}
+
+    onMouseOver={() => {
        
       
     }}  style={currentStyle} className={elementContainerClass}>
