@@ -1,0 +1,23 @@
+.loading-container{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    width: 200px;
+    height: 200px;
+    border: 30px solid transparent;
+    border-top-color: purple;
+    border-bottom-color: purple;
+    background-color: transparent;
+    border-radius: 50%;
+    animation: rotate 1000ms linear 0ms infinite forwards;
+}
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}

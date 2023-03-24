@@ -30,7 +30,7 @@ export const PeriodicTableViewer = () => {
       let modalOverlay = document.querySelector('.modal-overlay');
 
       if(modalOverlay){
-        modalOverlay.style.zIndex = 9
+        // modalOverlay.style.zIndex = 9
        
         //modalOverlay.style.opacity = 0.5
       }

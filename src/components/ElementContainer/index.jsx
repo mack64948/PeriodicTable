@@ -43,6 +43,7 @@ export const ElementContainer = ({elementInfo,mouseOverHandler}) => {
 
     
     currentStyle = {...currentStyle, 
+        color: (theme === "dark") ? "white" : "black",
         borderColor: (theme === "dark") ? "white" : "black",
         opacity: (searchIsActive && !inResults ? "0.5" : "1"),
        

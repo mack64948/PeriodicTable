@@ -7,11 +7,11 @@
   .modal-window{
     z-index: -9;
     position: absolute;
-    left: 25%;
-    top: 25%;
-    width: 50%;
-    height: 50%;
-    border: medium solid magenta;
+    left: 15%;
+    top: 20%;
+    width: 70%;
+    height: 70%;
+    border: medium ridge black;
     background-color: white;
     padding: 10px 20px;
   }
@@ -22,14 +22,15 @@
   }
   
   .modal-exit-button{
+    cursor: pointer;
     position: absolute;
     top: -20px;
     right: -20px;
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background-color: black;
-    border: thin ridge grey;
+    background: radial-gradient(black,white);
+    border: thin solid beige;
     color: white;
     font-size: 40px;
   

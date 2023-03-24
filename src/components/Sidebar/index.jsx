@@ -1,10 +1,20 @@
+/** External CSS */
 import "./index.css"
-import ElementTableContext from "../../context";
-import { useContext, useState, useEffect, useRef } from "react";
-import { getSeriesColor, getElementColor } from "../../utils/helper_functions";
-import { NumSelectorWidget } from "../NumSelectorWidget";
-import { convertTemp } from "../../utils/helper_functions";
+
+/** React Components */
 import { IonizationEnergyWidget } from "../IonizationEnergyWidget";
+import { NumSelectorWidget } from "../NumSelectorWidget";
+
+/** React Context */
+import ElementTableContext from "../../context";
+
+/** React Hooks */
+import { useContext, useState, useEffect, useRef } from "react";
+
+/** Helper Functions */
+import { getSeriesColor, getElementColor } from "../../utils/helper_functions";
+import { convertTemp } from "../../utils/helper_functions";
+
 
 export const Sidebar = ({info,setModalLink}) => {
     const {setCurrentMode,layout,theme,mode,

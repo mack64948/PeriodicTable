@@ -54,6 +54,8 @@ function App() {
   return (
     <Router>
     <ElementTableContext.Provider value={{
+      isShowingModal,setModalStatus,
+      modalLink,setModalLink,
         hasClickedElement,setHasClickedElement,
         selectedAtomicNumber, setAtomicNumber,
         userTemp, setUserTemp,
