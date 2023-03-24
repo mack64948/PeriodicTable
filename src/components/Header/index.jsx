@@ -1,9 +1,22 @@
+/** CSS imports */
 import "./index.css"
+
+/** Image imports */
 import layoutSideIcon from "../../assets/layout-side.svg"
 import layoutTopIcon from "../../assets/layout-top.svg"
+
+/** Context */
 import ElementTableContext from "../../context";
+
+/** React Hooks */
 import { useContext, useState } from "react";
+
+/** Helper functions */
 import { searchElements } from "../../utils/helper_functions";
+
+/** React router imports */
+import { Link } from "react-router-dom"
+import { BrowserRouter as Router } from "react-router-dom";
 
 export const Header = () => {
    
@@ -11,7 +24,7 @@ export const Header = () => {
             searchIsActive,setActiveSearch, 
             searchResults,setSearchResults } = useContext(ElementTableContext);
     const [isShowingSearchbar, setSearchbarStatus] = useState(false)
-    
+   
     return (<div className={"header-container " + (theme === "dark" ? "container-dark" : "container-light")}>
 
         <div className={"logo-container " + (theme === "dark" ? "logo-container-dark" : "logo-container-light")}>
@@ -19,25 +32,25 @@ export const Header = () => {
             <span className={"logo-text " && (theme === "dark" ? "logo-text-dark" : "logo-text-light")}>Periodic <br />Table</span>
         </div>
         <div className="navlink-group">
-            <a className={"navlink " + (theme === "dark" ? "navlink-dark" : "navlink-light")}>
+            <Link to="/ptable" className={"navlink " + (theme === "dark" ? "navlink-dark" : "navlink-light")}>
                 <i className="fa-regular fa-atom-simple"></i>
                 <span>Properties</span>
-            </a>
+            </Link>
 
-            <a className={"navlink " + (theme === "dark" ? "navlink-dark" : "navlink-light")}>
+            <Link to="/isotopes" className={"navlink " + (theme === "dark" ? "navlink-dark" : "navlink-light")}>
                 <i className="fa-regular fa-atom-simple"></i>
                 <span>Isotopes</span>
-            </a>
+            </Link>
 
-            <a className={"navlink " + (theme === "dark" ? "navlink-dark" : "navlink-light")}>
+            <Link to="/ecdiagrams" className={"navlink " + (theme === "dark" ? "navlink-dark" : "navlink-light")}>
                 <i className="fa-regular fa-atom-simple"></i>
                 <span>EC Diagrams</span>
-            </a>
+            </Link>
 
-            <a className={"navlink " + (theme === "dark" ? "navlink-dark" : "navlink-light")}>
+            <Link to="model3D" className={"navlink " + (theme === "dark" ? "navlink-dark" : "navlink-light")}>
                 <i className="fa-regular fa-atom-simple"></i>
                 <span>3D Models</span>
-            </a>
+            </Link>
         </div>
 
         <div className={"button-group " + (isShowingSearchbar && "display-none")}>
@@ -83,5 +96,6 @@ export const Header = () => {
             }} type="text" class="animated" /> : <input type="text" hidden />}
 
         </div>
-    </div>); 
+    </div>
+   ); 
 }

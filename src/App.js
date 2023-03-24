@@ -1,15 +1,31 @@
+/** CSS imports */
 import './App.css';
+
+/** React Router Imports */
+import {BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route } from 'react-router';
+
+/** Component Imports */
 import { Header } from './components/Header';
 import { PeriodicTable } from './components/PeriodicTable';
 import { SeriesSelectorTable } from './components/SeriesSelectorTable';
 import { TemperatureWidget } from './components/TemperatureWidget';
 import { Sidebar } from './components/Sidebar';
-import { useEffect, useState } from 'react';
-import ElementTableContext from './context';
-import { getElementInfo, getElementByAtomicNumber } from './data/data';
-import { NumSelectorWidget } from './components/NumSelectorWidget';
 import { ModalWindow } from './components/ModalWindow';
 import { ECDiagrams } from './components/ECDiagrams';
+import { PeriodicTableViewer } from './components/PeriodicTableViewer';
+import { Model3DPage } from './components/Model3DPage';
+import { IsotopesPage } from './components/IsotopesPage';
+
+/** React Hooks */
+import { useEffect, useState } from 'react';
+
+/** Context */
+import ElementTableContext from './context';
+
+/** Helper functions */
+import { getElementInfo, getElementByAtomicNumber } from './data/data';
+import { NumSelectorWidget } from './components/NumSelectorWidget';
 
 function App() {
   const [searchIsActive,setActiveSearch] = useState(false)
@@ -35,7 +51,9 @@ function App() {
   }, [])
 
   return (
+    <Router>
     <ElementTableContext.Provider value={{
+        selectedAtomicNumber, setAtomicNumber,
         userTemp, setUserTemp,
         userTempUnits,setUserTempUnits,
         mode,setCurrentMode,
@@ -46,36 +64,24 @@ function App() {
       <Header></Header>
       {isShowingModal && <ModalWindow elementName={sidebarElement.name} setModalStatus={() => { setModalStatus(false) }} modalLink={modalLink}></ModalWindow>}
    
+   
     <div className={"wrapper " + isShowingModal && "modal-overlay"}>
+   
+      <Routes>
+          <Route path="/" element={<PeriodicTableViewer></PeriodicTableViewer>}></Route>  
+           <Route path="/ptable" element={<PeriodicTableViewer></PeriodicTableViewer>}></Route>  
+           <Route path="/ecdiagrams" element={ <ECDiagrams></ECDiagrams>}></Route>
+           <Route path="/isotopes" element={ <IsotopesPage></IsotopesPage>}></Route>
+           <Route path="/model3D" element={ <Model3DPage></Model3DPage>}></Route>
 
-   <div className={"main-container " + (layout === 'sidebar-left' ? "flex-row" : "flex-col")}>
-   {/* <Sidebar setModalLink={(href) => {
-      setModalStatus(true);
-      setModalLink(href);
-      let modalWindow = document.querySelector('.modal-window');
-      let modalOverlay = document.querySelector('.modal-overlay');
-
-      if(modalOverlay){
-        modalOverlay.style.zIndex = 9
-       
-        //modalOverlay.style.opacity = 0.5
-      }
-
-      if(modalWindow){
-        modalWindow.style.zIndex = 10
-      }
-     
-      
-
-   }} info={sidebarElement}></Sidebar> */}
-    {/* <PeriodicTable setSelected={(atomicNumber) => {
-      setAtomicNumber(atomicNumber);
-    }}></PeriodicTable> */}
-
-    <ECDiagrams></ECDiagrams>
+        
+  
+      </Routes>
+    
    </div>
-   </div>
+    
    </ElementTableContext.Provider>
+   </Router> 
   );
 }
 

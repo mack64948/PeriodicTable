@@ -1,7 +1,14 @@
+/** External CSS */
 import "./index.css"
-import { useContext, useEffect, useRef, useState } from "react";
-import ElementTableContext from "../../context";
+
+/** React and React Hooks */
 import React from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+
+/** React Context */
+import ElementTableContext from "../../context";
+
+/* Helper Functions */
 import { getLinearNormalizedAtomicWeight } from "../../data/data";
 import { getElementColor, getSeriesColor } from "../../utils/helper_functions";
 import { getAtomicWeightBGColor } from "../../utils/helper_functions";
