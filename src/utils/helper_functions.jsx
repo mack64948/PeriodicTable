@@ -87,7 +87,6 @@ function getSeriesColor(theme,series){
 
 function getAtomicWeightBGColor(elementInfo){
     let normalizedAW = getLinearNormalizedAtomicWeight(elementInfo.atomicWeight)
-    console.log("normalizedAW: " + normalizedAW)
     let greenVal = 255*(1-normalizedAW);
     let blueVal = 255*(1-normalizedAW);
 
@@ -126,6 +125,17 @@ function determineState(mp,bp,currentTemp){
 }
 
 function convertTemp(fromUnit,fromVal,toUnit){
+    const validUnits = ['C','F','K']
+
+    console.log(`fromUnit: ${fromUnit}, toUnit: ${toUnit}, fromVal: ${fromVal}`)
+    if(!validUnits.includes(fromUnit) || !validUnits.includes(toUnit)){
+        return fromVal;
+    }
+
+    if(fromUnit === toUnit){
+        return fromVal;
+    }
+
     switch(fromUnit){
         case 'C':
             if(toUnit === 'K'){
@@ -148,7 +158,7 @@ function convertTemp(fromUnit,fromVal,toUnit){
                 return ((fromVal - 32) * 5/9) + 273.15
             };
         default:
-            break;
+            return fromVal;
     }
 }
 

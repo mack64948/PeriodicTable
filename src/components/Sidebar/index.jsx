@@ -14,21 +14,36 @@ import { useContext, useState, useEffect, useRef } from "react";
 /** Helper Functions */
 import { getSeriesColor, getElementColor } from "../../utils/helper_functions";
 import { convertTemp } from "../../utils/helper_functions";
+import { getElementByAtomicNumber } from "../../data/data";
 
+function UnitSelector({unitChangeHandler}){
+    return (<div>
+            <select onChange={(e) => {
+                unitChangeHandler(e.target.value)
+            }}>
+                <option value="C">&deg;C</option>
+                <option value="K">&deg;K</option>
+                <option value="F">&deg;F</option>
+            </select>
+        </div>);
+}
 
 export const Sidebar = ({info,setModalLink}) => {
-    const {setCurrentMode,layout,theme,mode,
-        userTemp,userTempUnits} = useContext(ElementTableContext);
+    const {setCurrentMode,layout,theme,mode,selectedAtomicNumber,
+        userTemp,userTempUnits, setUserTempUnits} = useContext(ElementTableContext);
     
-    const [meltingPoint,setMeltingPoint] = useState(info.mp)
-    const [boilingPoint,setBoilingPoint] = useState(info.bp)
+    let elementInfo = getElementByAtomicNumber(selectedAtomicNumber)
+    const [meltingPoint,setMeltingPoint] = useState(elementInfo.mp)
+    const [boilingPoint,setBoilingPoint] = useState(elementInfo.bp)
     const prevTempUnits = useRef(userTempUnits);
 
 
     useEffect(() => {
 
-        let updatedMeltingPoint = convertTemp(prevTempUnits.current,meltingPoint,userTempUnits)
-        let updatedBoilingPoint = convertTemp(prevTempUnits.current,boilingPoint,userTempUnits)
+        console.log(prevTempUnits.current)
+
+        let updatedMeltingPoint = convertTemp(prevTempUnits.current,elementInfo.mp,userTempUnits)
+        let updatedBoilingPoint = convertTemp(prevTempUnits.current,elementInfo.bp ,userTempUnits)
         
         setMeltingPoint(updatedMeltingPoint)
         setBoilingPoint(updatedBoilingPoint)
@@ -37,7 +52,7 @@ export const Sidebar = ({info,setModalLink}) => {
         console.log("Updated boiling point: " + boilingPoint)
 
         prevTempUnits.current = userTempUnits
-    }, [userTempUnits])
+    }, [userTempUnits,selectedAtomicNumber])
 
     let themeColor = getElementColor(mode,theme,info)
     let textColor = theme === "dark" ? "white" : "black";
@@ -92,8 +107,8 @@ export const Sidebar = ({info,setModalLink}) => {
                 }
             }><div className="info-container"><label>Atomic Weight: </label><span className="atomic-weight">{info.atomicWeight}</span></div></a>}
             {info.energyLevels && <div className="info-container"><label>Energy Levels: </label><span className="energy-levels">{info.energyLevels.join(",")}</span></div>}
-            {meltingPoint && !isNaN(meltingPoint) && <div className="info-container"><label>Melting Point: </label><span className="melting-point">{meltingPoint} &deg;{userTempUnits}</span></div>}
-            {boilingPoint && !isNaN(boilingPoint) &&  <div className="info-container"><label>Boiling Point: </label><span className="boiling-point">{boilingPoint} &deg;{userTempUnits}</span></div>}
+            {meltingPoint &&  <div className="info-container"><label>Melting Point: </label><span className="melting-point">{meltingPoint} &deg;{userTempUnits}</span></div>}
+            {boilingPoint &&  <div className="info-container"><label>Boiling Point: </label><span className="boiling-point">{boilingPoint} &deg;{userTempUnits}</span></div>}
             {info.electronegativity &&  <div className="info-container"><label>Electronegativity: </label><span className="boiling-point">{info.electronegativity}</span></div>}
 
         </div>

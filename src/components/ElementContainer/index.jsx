@@ -68,17 +68,7 @@ export const ElementContainer = ({elementInfo,mouseOverHandler}) => {
         }
        
 
-        if(hasClickedElement){
-           
-            let element = e.target; 
-        
-            if(element && element.classList.contains('element-container')){
-                restoreDefaultBorders(() => {
-                
-                });
-               
-            }
-        } 
+       
 
 
     }} 
