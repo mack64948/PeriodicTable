@@ -93,12 +93,33 @@ function getAtomicWeightBGColor(elementInfo){
     return `rgb(255,${greenVal},${blueVal})`;
 }
 
-function getElementColor(mode,theme,elementInfo){
+function getElementColor(mode,theme,elementInfo,currentStateOfMatter){
     switch(mode){
         case "regular":
             return getSeriesColor(theme,elementInfo.series)
         case "slg":
             return getSeriesColor(theme,elementInfo.series)
+          
+        case "state-of-matter":
+            if(theme === 'dark'){
+                switch(currentStateOfMatter){
+                    case 'solid':
+                        return 'red';
+                    case 'liquid':
+                        return 'orangered';
+                    case 'gas':
+                        return 'yellow';;
+                }
+            } else {
+                switch(currentStateOfMatter){
+                    case 'solid':
+                        return "darkblue;"
+                    case 'liquid':
+                        return "blue";
+                    case 'gas':
+                        return "lightblue";
+                }
+            }
             break;
         case 'atomic-weight':
             return getAtomicWeightBGColor(elementInfo)
@@ -159,6 +180,27 @@ function convertTemp(fromUnit,fromVal,toUnit){
             };
         default:
             return fromVal;
+    }
+}
+
+function getAllElementWithState(stateOfMatter, userTemp){
+    switch(stateOfMatter){
+        case 'solid':
+            return elementData.filter((elementInfo) => {
+                return userTemp > elementInfo.mp && userTemp < elementInfo.bp
+            })
+           
+        case 'liquid':
+            return elementData.filter((elementInfo) => {
+                return userTemp > elementInfo.bp;
+            })
+      
+        case 'gas':
+            return elementData.filter((elementInfo) => {
+                return userTemp < elementInfo.mp;
+            })
+        default:
+            break;
     }
 }
 

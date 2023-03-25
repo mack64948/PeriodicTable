@@ -1,4 +1,5 @@
 .pt-container{
+    position: relative;
     overflow: scroll;
     border-radius: 10px;
     box-shadow: 2px 2px 3px black;
@@ -11,6 +12,89 @@
     grid-template-columns: repeat(19, 1fr);
     grid-template-rows:  repeat(8, 1fr);
 }
+
+.legend-box{
+    position: absolute;
+    left: 300px;
+    top: 80px;
+    width: 750px;
+    height: 180px;
+    padding: 10px 15px;
+    background-color: lightgrey;
+    border: thick ridge black;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    display: flex;
+    gap: 5px;
+
+}
+
+.state-of-matter-selector{
+    width: 30%;
+    height: 100%;
+    display: grid;
+    grid-template: repeat(4,1fr) / 50px 1fr;
+}
+
+.legend-dark{
+    border-color: yellow;
+    background-color: azure;
+}
+
+.legend-light{
+    border-color: black;
+    background-color: lightgray;
+}
+.som-grid-item{
+    border: thin solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.som-button:hover{
+    cursor: pointer;
+    border-color: magenta;
+    border-style: double;
+}
+
+
+.solid-button{
+    background-color: red;
+}
+
+
+.liquid-button{
+    border-top: none;
+    background-color: green;
+}
+
+.gas-button{
+    border-top: none;
+    background-color: blue;
+}
+
+.unknown-button{
+    border-top: none;
+    background-color: yellow;
+}
+
+.gas-label, .liquid-label, .unknown-label{
+    border-top: none;
+    border-left: none;
+}
+
+.som-label{
+    background-color: white;
+}
+
+
+.solid-label{
+    border-left: none;
+}
+
+
+
 
 .active-search{
     /* opacity: 0.5; */
@@ -47,6 +131,7 @@
 }
 
 .pt-element-container{
+    position: relative;
     background-color: white;
     border: thin solid transparent;
    
@@ -66,6 +151,7 @@
 
 
 .filler{
+    position: relative;
     background-color: transparent;
     border: none;
 }

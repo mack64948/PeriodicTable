@@ -4,8 +4,14 @@ export const tableData = [
     ["column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label","column-label"],
 
     //periods
-    ["row-label","g1 atnum-1","filler", "filler", "filler", "filler", "filler", "filler", "filler", "filler","filler", "filler", "filler", "filler","filler", "filler", "filler", "filler","g8 atnum-2" ], //period 1
-    ["row-label","g1 alkali-metal atnum-3", "g2 alkaline-earth-metal atnum-4", "filler", "filler", "filler", "filler", "filler", "filler", "filler", "filler","filler", "filler", "g3 atnum-5","g4 atnum-6", "g5 atnum-7","g6 atnum-8", "g7 halogens atnum-9", "g8 noble-gases atnum-10" ], //period 2
+    ["row-label","g1 atnum-1","filler", 
+        "filler", "filler legend-box", "filler", "filler", 
+        "filler", "filler", "filler","filler", 
+        "filler", "filler", "filler","filler", "filler", "filler", "filler","g8 atnum-2" ], //period 1
+    ["row-label","g1 alkali-metal atnum-3", "g2 alkaline-earth-metal atnum-4", 
+        "filler", "filler", "filler", "filler", 
+        "filler", "filler", "filler", "filler",
+        "filler", "filler", "g3 atnum-5","g4 atnum-6", "g5 atnum-7","g6 atnum-8", "g7 halogens atnum-9", "g8 noble-gases atnum-10" ], //period 2
     ["row-label","g1 alkali-metal atnum-11", 
     "g2 alkaline-earth-metal atnum-12", 
     "filler", "filler", "filler", "filler",

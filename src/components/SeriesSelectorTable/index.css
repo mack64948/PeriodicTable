@@ -1,6 +1,6 @@
 :root{
-    --table-container-height: 300px;
-    --table-container-width: 500px;
+    --table-container-height: 100%;
+    --table-container-width: 100%;
     --col-width: 50px;
 }
 
@@ -14,7 +14,7 @@
     position: relative;
     width: var(--table-container-width);
     height: var(--table-container-height);
- 
+   
 
     display: grid;
     grid-template-areas: 
@@ -63,9 +63,8 @@
   
   
     display: inline-block;
-    width: 150px;
+    width: 100px;
     font-size: 20px;
-    background-color: orange;
     transform: rotate(90deg);
 }
 
@@ -78,6 +77,7 @@
     position: inherit;
     grid-area: alkali-metals;
     background-color: goldenrod;
+    margin-left: 0px;
 }
 
 .alkaline-earth-metals-selector{
@@ -90,14 +90,16 @@
     position: inherit;
     grid-area: trans-metals;
     background-color: coral;
-    width: var(--col-width);
+    width: fit-content;
 }
 
 .post-transition-metals-selector{
     position: inherit;
     background-color: aqua;
     grid-area: post-trans-metals;
-    width: var(--col-width);
+    width: fit-content;
+   
+    margin-right: 0px;
 }
 
 .lanthanoids-selector{
@@ -121,7 +123,7 @@
     position: inherit;
     grid-area: reactive-non-metals;
     background-color: lawngreen;
-    width: var(--col-width);
+    width: fit-content;
 }
 
 .noble-gases-selector{

@@ -115,7 +115,9 @@ export const Sidebar = ({info,setModalLink}) => {
 
         <div className="sidebar-section">
 
-            <div className="info-container temp-info-container">
+            <div className="info-container temp-info-container" onClick={() => {
+                setCurrentMode('state-of-matter')
+            }}>
                 <label>State at: </label>
                 <NumSelectorWidget></NumSelectorWidget>
                 <select value={ userTemp > boilingPoint ? "gas" : (userTemp > meltingPoint ? "liquid" : "solid")

@@ -12,6 +12,7 @@ import ElementTableContext from "../../context";
 import { getLinearNormalizedAtomicWeight } from "../../data/data";
 import { getElementColor, getSeriesColor } from "../../utils/helper_functions";
 import { getAtomicWeightBGColor } from "../../utils/helper_functions";
+import { convertTemp } from "../../utils/helper_functions";
 
 const restoreDefaultBorders = (callback) => {
         let elementContainers = document.querySelectorAll(".element-container:not(.filler):not(.row-label):not(.column-label")
@@ -30,13 +31,21 @@ const restoreDefaultBorders = (callback) => {
 export const ElementContainer = ({elementInfo,mouseOverHandler}) => {
     const { hasClickedElement,setHasClickedElement,
         setAtomicNumber,selectedAtomicNumber,
-        mode,theme, searchIsActive, searchResults} = useContext(ElementTableContext);
+        mode,theme, searchIsActive, searchResults, 
+        userTemp, userTempUnits} = useContext(ElementTableContext);
     
-        const [isActive,setIsActive] = useState(false);
+    const [isActive,setIsActive] = useState(false);
 
+    const getCurrentStateOfMatter = () => {
+        let adjustedBP = convertTemp(userTempUnits,elementInfo.bp,'C')
+        let adjustedMP = convertTemp(userTempUnits,elementInfo.mp,'C')
+
+        return userTemp > adjustedBP ? 'gas' : (userTemp > adjustedMP ? 'liquid' : 'solid');
+
+    }
 
     let currentStyle = {
-        backgroundColor: getElementColor(mode,theme,elementInfo)
+        backgroundColor: getElementColor(mode,theme,elementInfo,getCurrentStateOfMatter())
     }
 
     let inResults = searchResults.includes(elementInfo)
