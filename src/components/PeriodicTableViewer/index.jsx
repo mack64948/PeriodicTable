@@ -27,13 +27,7 @@ export const PeriodicTableViewer = () => {
       setModalStatus(true);
       setModalLink(href);
       let modalWindow = document.querySelector('.modal-window');
-      let modalOverlay = document.querySelector('.modal-overlay');
-
-      if(modalOverlay){
-        // modalOverlay.style.zIndex = 9
-       
-        //modalOverlay.style.opacity = 0.5
-      }
+      
 
       if(modalWindow){
         modalWindow.style.zIndex = 10
