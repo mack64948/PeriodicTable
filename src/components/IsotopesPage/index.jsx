@@ -1,8 +1,10 @@
 /** External CSS */
 import "./index.css"
+import { TemperatureWidget } from "../TemperatureWidget"
 
 export const IsotopesPage = () => {
     return (<div className="main-container">
-        <h2>Under Construction</h2>;
+    
+        <TemperatureWidget></TemperatureWidget>
     </div>)
 }

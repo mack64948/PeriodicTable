@@ -75,8 +75,9 @@ function App() {
           <Route path="/" element={<PeriodicTableViewer></PeriodicTableViewer>}></Route>  
            <Route path="/ptable" element={<PeriodicTableViewer></PeriodicTableViewer>}></Route>  
            <Route path="/ecdiagrams" element={ <ECDiagrams></ECDiagrams>}></Route>
-           <Route path="/isotopes" element={ <IsotopesPage></IsotopesPage>}></Route>
-           <Route path="/model3D" element={ <Model3DPage></Model3DPage>}></Route>
+           <Route path="/quizzes" element={ <IsotopesPage></IsotopesPage>}></Route>
+           <Route path="/games" element={ <IsotopesPage></IsotopesPage>}></Route>
+          <Route path="/model3D" element={ <Model3DPage></Model3DPage>}></Route>
 
         
   

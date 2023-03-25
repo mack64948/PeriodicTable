@@ -28,12 +28,9 @@ export const TemperatureWidget = () => {
                   oldPos.current = e.clientX;
                   // set the element's new position:
                   let min = tempBar.current.offsetLeft
-                  let canMove = tempSelector.current.offsetLeft - newPos.current > min
+
+                  let canMove = newPos.current > tempSelector.current.offsetLeft && newPos.current < tempSelector.current.offsetRight 
                   if(tempSelector.current && canDrag.current){
-                    console.log("Moving selector")
-                    console.log("tempSelector.current -> " + tempSelector.current)
-                    console.log("current left -> " + tempSelector.current.offsetLeft)
-                    console.log("new left -> " + (tempSelector.current.offsetLeft - newPos.current) )
                    tempSelector.current.style.left = (tempSelector.current.offsetLeft - newPos.current) + "px";
                   }
            }} className="temp-bar">
