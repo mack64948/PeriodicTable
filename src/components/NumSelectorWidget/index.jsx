@@ -21,7 +21,7 @@ export const NumSelectorWidget = () => {
         <input class="temp-input" onChange={
             (e) => {
                 
-                setUserTemp(e.target.value);
+                setUserTemp(parseFloat(e.target.value));
             }
         } value={userTemp} type="text">
             

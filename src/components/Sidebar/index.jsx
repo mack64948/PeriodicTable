@@ -107,8 +107,8 @@ export const Sidebar = ({info,setModalLink}) => {
                 }
             }><div className="info-container"><label>Atomic Weight: </label><span className="atomic-weight">{info.atomicWeight}</span></div></a>}
             {info.energyLevels && <div className="info-container"><label>Energy Levels: </label><span className="energy-levels">{info.energyLevels.join(",")}</span></div>}
-            {meltingPoint &&  <div className="info-container"><label>Melting Point: </label><span className="melting-point">{meltingPoint} &deg;{userTempUnits}</span></div>}
-            {boilingPoint &&  <div className="info-container"><label>Boiling Point: </label><span className="boiling-point">{boilingPoint} &deg;{userTempUnits}</span></div>}
+            {meltingPoint &&  <div className="info-container"><label>Melting Point: </label><span className="melting-point">{meltingPoint.toFixed(2)} &deg;{userTempUnits}</span></div>}
+            {boilingPoint &&  <div className="info-container"><label>Boiling Point: </label><span className="boiling-point">{boilingPoint.toFixed(2)} &deg;{userTempUnits}</span></div>}
             {info.electronegativity &&  <div className="info-container"><label>Electronegativity: </label><span className="boiling-point">{info.electronegativity}</span></div>}
 
         </div>
@@ -118,7 +118,8 @@ export const Sidebar = ({info,setModalLink}) => {
             <div className="info-container temp-info-container">
                 <label>State at: </label>
                 <NumSelectorWidget></NumSelectorWidget>
-                <select   class="state-selector">
+                <select value={ userTemp > boilingPoint ? "gas" : (userTemp > meltingPoint ? "liquid" : "solid")
+                 }   class="state-selector" disabled>
                     <option value="solid">Solid</option>
                     <option value="liquid">Liquid</option>
                     <option value="gas">Gas</option>
