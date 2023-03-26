@@ -225,7 +225,6 @@ function searchElements(searchString){
 function convertTemp(fromUnit,fromVal,toUnit){
     const validUnits = ['C','F','K']
 
-    console.log(`fromUnit: ${fromUnit}, toUnit: ${toUnit}, fromVal: ${fromVal}`)
     if(!validUnits.includes(fromUnit) || !validUnits.includes(toUnit)){
         return fromVal;
     }

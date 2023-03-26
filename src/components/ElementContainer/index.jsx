@@ -14,19 +14,7 @@ import { getElementColor, getSeriesColor } from "../../utils/helper_functions";
 import { getAtomicWeightBGColor } from "../../utils/helper_functions";
 import { convertTemp } from "../../utils/helper_functions";
 
-const restoreDefaultBorders = (callback) => {
-        let elementContainers = document.querySelectorAll(".element-container:not(.filler):not(.row-label):not(.column-label")
-        
-        for(let i = 0; i < elementContainers.length; i++){
-            let elementContainer = elementContainers[i];
-            elementContainer.style.border = "2px solid black";
-        }
 
-        if(callback !== null && callback !== undefined){
-            callback();
-        }
-       
-}
 
 export const ElementContainer = ({elementInfo,mouseOverHandler}) => {
     const { hasClickedElement,setHasClickedElement,

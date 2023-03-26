@@ -1,5 +1,5 @@
 /** CSS imports */
-import './App.css';
+import '/App.css';
 
 /** React Router Imports */
 import {BrowserRouter as Router } from 'react-router-dom';
