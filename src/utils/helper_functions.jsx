@@ -307,10 +307,13 @@ function getAtomicNumberFromTableDataString(dataString){
     return result
 }
 
-export { getAtomicNumberFromTableDataString, 
+export { 
+    colorDict,
+    getAtomicNumberFromTableDataString, 
     convertTemp, 
     getElementColor, 
     searchElements,
+    getSeriesKey,
     getSeriesColor, 
     getAtomicWeightModeColor
 }

@@ -13,6 +13,7 @@ import { getLinearNormalizedAtomicWeight } from "../../data/data";
 import { getElementColor, getSeriesColor } from "../../utils/helper_functions";
 import { getAtomicWeightBGColor } from "../../utils/helper_functions";
 import { convertTemp } from "../../utils/helper_functions";
+import { StyleGenerator } from "../../utils/style_generator";
 
 
 
@@ -32,19 +33,8 @@ export const ElementContainer = ({elementInfo,mouseOverHandler}) => {
 
     }
 
-    let currentStyle = {
-        backgroundColor: getElementColor(mode,theme,elementInfo,getCurrentStateOfMatter())
-    }
-
-    let inResults = searchResults.includes(elementInfo)
-
-    
-    currentStyle = {...currentStyle, 
-        color: (theme === "dark") ? "white" : "black",
-        borderColor: (theme === "dark") ? "white" : "black",
-        opacity: (searchIsActive && !inResults ? "0.5" : "1"),
-       
-    }
+    let currentStyle = StyleGenerator.CreateStyleObject(elementInfo.atomicNumber,mode,theme)
+    currentStyle = StyleGenerator.ApplySearchResultFormatting(elementInfo,searchResults,searchIsActive,currentStyle)
     
     let elementContainerClass = "element-container";
 

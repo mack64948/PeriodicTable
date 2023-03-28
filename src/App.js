@@ -1,5 +1,5 @@
 /** CSS imports */
-import '/App.css';
+import './App.css';
 
 /** React Router Imports */
 import {BrowserRouter as Router } from 'react-router-dom';
@@ -16,7 +16,6 @@ import { ECDiagrams } from './components/ECDiagrams';
 import { PeriodicTableViewer } from './components/PeriodicTableViewer';
 import { Model3DPage } from './components/Model3DPage';
 import { IsotopesPage } from './components/IsotopesPage';
-
 /** React Hooks */
 import { useEffect, useState } from 'react';
 
@@ -76,7 +75,7 @@ function App() {
            <Route path="/ptable" element={<PeriodicTableViewer></PeriodicTableViewer>}></Route>  
            <Route path="/ecdiagrams" element={ <ECDiagrams></ECDiagrams>}></Route>
            <Route path="/quizzes" element={ <IsotopesPage></IsotopesPage>}></Route>
-           <Route path="/games" element={ <IsotopesPage></IsotopesPage>}></Route>
+           <Route path="/games" element={<IsotopesPage></IsotopesPage>}></Route>
           <Route path="/model3D" element={ <Model3DPage></Model3DPage>}></Route>
 
         
